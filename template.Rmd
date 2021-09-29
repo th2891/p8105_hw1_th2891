@@ -46,13 +46,13 @@ After this conversion, I would be able to calculate the mean of the factor varia
 
 ### loading Penguins to the dataset
 
-```{r}
+```{r_problem2, echo=TRUE}
+
 library(tidyverse)
+
 data("penguins", package = "palmerpenguins")
 
 penguins
-
-mean(pull(penguins, var = flipper_length_mm))
 ```
 
 
