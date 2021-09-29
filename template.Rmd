@@ -44,23 +44,47 @@ After this conversion, I would be able to calculate the mean of the factor varia
 
 # Problem 2
 
-### loading Penguins to the dataset
+### Loading Penguins to the Dataset
 
-```{r_problem2, echo=TRUE}
+```{r_problem2, eval = FALSE}
 
 library(tidyverse)
 
 data("penguins", package = "palmerpenguins")
 
-penguins
+nrow(penguins)
+ncol(penguins)
+
+mean(pull(penguins, var = flipper_length_mm), na.rm = TRUE)
+
 ```
 
 
 * Penguins Data set
 
-  * Variables include; species, island, bill length (mm), bill depth (mm)
-    flipper length (mm). body mass (g), sex, and year
-  * 344 x 8 table
+  * The data set has 8 variables 
+      * species (character)
+      * island (character)
+      * bill length in mm (numerical)  
+      * bill depth in mm (numerical)
+      * flipper length in mm (numerical)
+      * body mass in g (numerical)
+      * sex (character)
+      * year (numerical)
+  * There are 344 rows and 8 columns
+  * the mean flipper length is 200.9152 mm 
+
+## Problem 2
+### GGPlot
 
 
+```{r_ggplot, echo=FALSE}
+
+library(tidyverse)
+
+ggplot(data = penguins, mapping = aes (x = bill_length_mm, y = flipper_length_mm)) + geom_point(alpha = 0.5, aes (color = species), na.rm = TRUE)
+
+ggsave("penguin_ggplot.pdf", heigh = 4, width = 6)
+
+```
 
