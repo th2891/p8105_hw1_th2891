@@ -1,0 +1,32 @@
+---
+title: "Homework 1"
+output: github_document
+---
+
+##Problem 1 
+  Variable types & coercion
+  
+```{r}
+library(tidyverse)
+
+hw_1 = tibble( 
+samp = rnorm(10),
+gr_0 = samp > 0,
+vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j" ),
+vec_level = factor(c("high", "medium", "low", "medium", "high", "low", "high", "medium", "high", "low"))
+ )
+
+hw_1
+
+mean(pull(hw_1, var = samp))
+mean(pull(hw_1, var = gr_0))
+mean(pull(hw_1, var = vec_char))
+mean(pull(hw_1, var = vec_level))
+```
+
+I am able to take the mean of the variable "samp," which is the random sample size of 10 that follows a normal distribution. 
+I am also able to take the mean of the variable "gr_0," which is the summ of the variables that are greater than 0. 
+I am unable to take the mean for vec_char and vec_level because those are not numeric, instead they are characters.
+
+
+
